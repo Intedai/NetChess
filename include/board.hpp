@@ -35,4 +35,5 @@ class Board {
         Board();
         void initBoard();
         void printBoard(Color perspective) const;
+        void movePiece(int fromRow, int fromCol, int toRow, int toCol);
 };

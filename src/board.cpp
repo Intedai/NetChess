@@ -88,3 +88,8 @@ void Board::printBoard(Color perspective) const{
     }
     std::cout << std::endl;
 }
+
+void Board::movePiece(int fromRow, int fromCol, int toRow, int toCol)
+{
+    board[fromRow][fromCol].movePiece(board[toRow][toCol]);
+}

@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <string_view>
+#include <cctype>
 #include "board.hpp"
 
 class Chess {
@@ -10,6 +12,6 @@ class Chess {
 
         void changePlayer();
     public:
-        Chess() : board(), currentPlayer(Color::white) {}
+        Chess();
         void run();
 };

@@ -13,7 +13,7 @@ public:
     void setPiece(std::unique_ptr<Piece> piece);
     void clearSquare();
 
-    void moveSquare(Square& dest);
+    void movePiece(Square& dest);
 
     std::string getSymbol() const;
 };

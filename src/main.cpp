@@ -1,9 +1,7 @@
 #include "chess.hpp"
 
-int main()
-{
+int main() {
     Chess chess;
-
     chess.run();
     
     return 0;
