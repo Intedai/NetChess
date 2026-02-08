@@ -20,49 +20,71 @@ Board::Board()
 void Board::initBoard()
 {
     // King
-    board[WHITE_PIECES_ROW][KING_POS].setPiece(std::make_unique<King>(WHITE));
-    board[BLACK_PIECES_ROW][KING_POS].setPiece(std::make_unique<King>(BLACK));
+    board[WHITE_PIECES_ROW][KING_POS].setPiece(std::make_unique<King>(Color::white));
+    board[BLACK_PIECES_ROW][KING_POS].setPiece(std::make_unique<King>(Color::black));
 
     // Queen
-    board[WHITE_PIECES_ROW][QUEEN_POS].setPiece(std::make_unique<Queen>(WHITE));
-    board[BLACK_PIECES_ROW][QUEEN_POS].setPiece(std::make_unique<Queen>(BLACK));
+    board[WHITE_PIECES_ROW][QUEEN_POS].setPiece(std::make_unique<Queen>(Color::white));
+    board[BLACK_PIECES_ROW][QUEEN_POS].setPiece(std::make_unique<Queen>(Color::black));
 
     // Rooks
     for (size_t pos : ROOK_POS)
     {
-        board[WHITE_PIECES_ROW][pos].setPiece(std::make_unique<Rook>(WHITE));
-        board[BLACK_PIECES_ROW][pos].setPiece(std::make_unique<Rook>(BLACK));
+        board[WHITE_PIECES_ROW][pos].setPiece(std::make_unique<Rook>(Color::white));
+        board[BLACK_PIECES_ROW][pos].setPiece(std::make_unique<Rook>(Color::black));
     }
 
     // Knights
     for (size_t pos : KNIGHT_POS)
     {
-        board[WHITE_PIECES_ROW][pos].setPiece(std::make_unique<Knight>(WHITE));
-        board[BLACK_PIECES_ROW][pos].setPiece(std::make_unique<Knight>(BLACK));
+        board[WHITE_PIECES_ROW][pos].setPiece(std::make_unique<Knight>(Color::white));
+        board[BLACK_PIECES_ROW][pos].setPiece(std::make_unique<Knight>(Color::black));
     }
 
     // Bishops
     for (size_t pos : BISHOP_POS)
     {
-        board[WHITE_PIECES_ROW][pos].setPiece(std::make_unique<Bishop>(WHITE));
-        board[BLACK_PIECES_ROW][pos].setPiece(std::make_unique<Bishop>(BLACK));
+        board[WHITE_PIECES_ROW][pos].setPiece(std::make_unique<Bishop>(Color::white));
+        board[BLACK_PIECES_ROW][pos].setPiece(std::make_unique<Bishop>(Color::black));
     }
 
     // Pawns
     for (size_t c = 0; c < BOARD_SIZE; c++)
     {
-        board[WHITE_PAWN_ROW][c].setPiece(std::make_unique<Pawn>(WHITE));
-        board[BLACK_PAWN_ROW][c].setPiece(std::make_unique<Pawn>(BLACK));
+        board[WHITE_PAWN_ROW][c].setPiece(std::make_unique<Pawn>(Color::white));
+        board[BLACK_PAWN_ROW][c].setPiece(std::make_unique<Pawn>(Color::black));
     }
 }
 
-void Board::printBoard() const{
-    for(const auto& row : board)
+void Board::printBoard(Color perspective) const{
+
+    for(size_t i = 0; i < BOARD_SIZE; i++)
     {
-        for (const Square& x : row)
+        int r;
+
+        if (perspective == Color::white)
+        {
+            r = BOARD_SIZE - 1 - i;
+        }
+        else
+        {
+            r = i;
+        }
+
+        std::cout << r + 1 << " ";
+        for (const Square& x : board[r])
         {
             std::cout << x.getSymbol() << " ";
         }
         std::cout << std::endl;
     }
+
+    char startingChar = 'A';
+    std::cout << "+ ";
+
+    for (int i = 0; i < BOARD_SIZE; i++)
+    {
+        std::cout << static_cast<char>(startingChar + i) << " ";
+    }
+    std::cout << std::endl;
 }

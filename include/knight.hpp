@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "utils.hpp"
+#include "color.hpp"
 #include "square.hpp"
 #include "piece.hpp"
 

@@ -6,7 +6,10 @@
 class Chess {
     private:
         Board board;
+        Color currentPlayer;
+
+        void changePlayer();
     public:
-    Chess() : board(){}
-    void run();
+        Chess() : board(), currentPlayer(Color::white) {}
+        void run();
 };

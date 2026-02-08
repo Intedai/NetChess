@@ -1,5 +1,5 @@
 #include "knight.hpp"
 
 std::string Knight::getSymbol() const {
-    return color == WHITE ? "♘" : "♞";
+    return color == Color::white ? "♘" : "♞";
 }

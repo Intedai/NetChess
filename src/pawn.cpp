@@ -1,5 +1,5 @@
 #include "pawn.hpp"
 
 std::string Pawn::getSymbol() const {
-    return color == WHITE ? "♙" : "♟";
+    return color == Color::white ? "♙" : "♟";
 }

@@ -4,7 +4,7 @@
 #include <vector>
 #include <array>
 #include <memory>
-#include "utils.hpp"
+#include "color.hpp"
 #include "square.hpp"
 #include "piece.hpp"
 #include "pawn.hpp"
@@ -13,6 +13,8 @@
 #include "rook.hpp"
 #include "knight.hpp"
 #include "bishop.hpp"
+
+constexpr int BOARD_SIZE = 8;
 
 constexpr size_t WHITE_PAWN_ROW = 1;
 constexpr size_t BLACK_PAWN_ROW = BOARD_SIZE - 2;
@@ -32,5 +34,5 @@ class Board {
     public:
         Board();
         void initBoard();
-        void printBoard() const;
+        void printBoard(Color perspective) const;
 };

@@ -13,3 +13,8 @@ std::string Square::getSymbol() const {
         return piece->getSymbol();
     return "X";
 }
+
+void Square::moveSquare(Square& dest)
+{
+    dest.setPiece(std::move(piece));
+}
