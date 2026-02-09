@@ -17,3 +17,11 @@ std::string Square::getSymbol() const {
 void Square::movePiece(Square& dest) {
     dest.setPiece(std::move(piece));
 }
+
+std::optional<Color> Square::getColor() const {
+    if (this->piece)
+    {
+        return piece->getColor();
+    }
+    return {};
+}

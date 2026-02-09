@@ -2,6 +2,7 @@
 
 #include <string>
 #include <memory>
+#include <optional>
 #include "piece.hpp"
 
 class Square {
@@ -15,5 +16,6 @@ public:
 
     void movePiece(Square& dest);
 
+    std::optional<Color> getColor() const;
     std::string getSymbol() const;
 };

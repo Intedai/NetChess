@@ -89,7 +89,10 @@ void Board::printBoard(Color perspective) const{
     std::cout << std::endl;
 }
 
-void Board::movePiece(int fromRow, int fromCol, int toRow, int toCol)
-{
+void Board::movePiece(int fromRow, int fromCol, int toRow, int toCol) {
     board[fromRow][fromCol].movePiece(board[toRow][toCol]);
+}
+
+std::optional<Color> Board::getPieceColor(int row, int col) const {
+    return board[row][col].getColor();
 }
