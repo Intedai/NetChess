@@ -55,9 +55,13 @@ void Chess::run() {
         // Check if the current player is allowed to move the piece he selected
         std::optional<Color> selectedPieceColor = board.getPieceColor(fromRow, fromCol);
         
-        if (!selectedPieceColor || *selectedPieceColor != currentPlayer) {
-            std::cout << "Must select your own piece" << std::endl;
+        if (!selectedPieceColor) {
+            std::cout << "You've selected an empty space, try again!" << std::endl;
             continue;
+        }
+        else if (*selectedPieceColor != currentPlayer) {
+            std::cout << "Must select your own piece" << std::endl;
+            continue;           
         }
 
         do {
@@ -65,7 +69,9 @@ void Chess::run() {
         } while (!validateInput(input, toRow, toCol));
         
 
-        board.movePiece(fromRow, fromCol, toRow, toCol);
-        changePlayer();
+        if(board.validMovePiece(fromRow, fromCol, toRow, toCol))
+            changePlayer();
+        else
+            std::cout << "Illegal move! try again" << std::endl;
     }
 }

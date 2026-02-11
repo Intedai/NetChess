@@ -11,7 +11,9 @@ private:
 public:
     explicit Square() : piece(nullptr) {}
     
+    const Piece &getPiece() const;
     void setPiece(std::unique_ptr<Piece> piece);
+
     void clearSquare();
 
     void movePiece(Square& dest);

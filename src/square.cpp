@@ -1,5 +1,9 @@
 #include "square.hpp"
 
+const Piece &Square::getPiece() const {
+    return *piece;
+}
+
 void Square::setPiece(std::unique_ptr<Piece> piece) {
     this->piece = std::move(piece);
 }

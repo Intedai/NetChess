@@ -5,6 +5,7 @@
 #include <array>
 #include <memory>
 #include <optional>
+#include "validation.hpp"
 #include "color.hpp"
 #include "square.hpp"
 #include "piece.hpp"
@@ -37,5 +38,6 @@ class Board {
         void initBoard();
         void printBoard(Color perspective) const;
         void movePiece(int fromRow, int fromCol, int toRow, int toCol);
+        bool validMovePiece(int fromRow, int fromCol, int toRow, int toCol);
         std::optional<Color> getPieceColor(int row, int col) const;
 };

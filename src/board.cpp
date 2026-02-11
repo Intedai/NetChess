@@ -90,9 +90,22 @@ void Board::printBoard(Color perspective) const{
 }
 
 void Board::movePiece(int fromRow, int fromCol, int toRow, int toCol) {
-    board[fromRow][fromCol].movePiece(board[toRow][toCol]);
+    if (Validation::isInBoard(fromRow, fromCol) && Validation::isInBoard(toRow, toCol))
+        board[fromRow][fromCol].movePiece(board[toRow][toCol]);
+}
+
+bool Board::validMovePiece(int fromRow, int fromCol, int toRow, int toCol) {
+    if (Validation::isInBoard(fromRow, fromCol) && Validation::isInBoard(toRow, toCol)) {
+        if(board[fromRow][fromCol].getPiece().isValidMove(*this, fromRow, fromCol, toRow, toCol)) {
+            board[fromRow][fromCol].movePiece(board[toRow][toCol]);
+            return true;
+        }
+    }
+    return false;
 }
 
 std::optional<Color> Board::getPieceColor(int row, int col) const {
+    if (!Validation::isInBoard(row, col))
+        return {};
     return board[row][col].getColor();
 }
