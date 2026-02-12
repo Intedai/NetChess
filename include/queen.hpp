@@ -4,8 +4,8 @@
 #include "color.hpp"
 #include "square.hpp"
 #include "piece.hpp"
-
-class Board;
+#include "validation.hpp"
+#include "board.hpp"
 
 class Queen : public Piece {
     public:

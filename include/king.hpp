@@ -6,8 +6,7 @@
 #include "square.hpp"
 #include "piece.hpp"
 #include "validation.hpp"
-
-class Board;
+#include "board.hpp"
 
 class King : public Piece {
     public:
