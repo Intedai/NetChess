@@ -1,9 +1,11 @@
 #pragma once
 
 #include <string>
+#include <cstdlib>
 #include "color.hpp"
 #include "square.hpp"
 #include "piece.hpp"
+#include "validation.hpp"
 
 class Board;
 
