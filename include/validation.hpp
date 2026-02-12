@@ -1,3 +1,5 @@
+#include <optional>
+
 class Board;
 
 namespace Validation {

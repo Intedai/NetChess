@@ -5,5 +5,5 @@ std::string Rook::getSymbol() const {
 }
 
 bool Rook::isValidMove(Board& board, int fromRow, int fromCol, int toRow, int toCol) const {
-    return true;
+    return Validation::isValidStraightMove(board, fromRow, fromCol, toRow, toCol);
 }
