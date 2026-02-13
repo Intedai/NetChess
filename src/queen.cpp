@@ -5,5 +5,8 @@ std::string Queen::getSymbol() const {
 }
 
 bool Queen::isValidMove(Board& board, int fromRow, int fromCol, int toRow, int toCol) const {
-    return true;
+    return (
+        Validation::isValidStraightMove(board, fromRow, fromCol, toRow, toCol) ||
+        Validation::isValidDiagonalMove(board, fromRow, fromCol, toRow, toCol)
+    );
 }
