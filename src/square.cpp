@@ -19,7 +19,11 @@ std::string Square::getSymbol() const {
 }
 
 void Square::movePiece(Square& dest) {
-    dest.setPiece(std::move(piece));
+    if (piece)
+    {
+        piece->onMove();
+        dest.setPiece(std::move(piece));
+    }
 }
 
 std::optional<Color> Square::getColor() const {

@@ -3,13 +3,13 @@
 #include <string>
 #include "color.hpp"
 #include "square.hpp"
-#include "piece.hpp"
+#include "tracked_piece.hpp"
 #include "validation.hpp"
 #include "board.hpp"
 
-class Rook : public Piece {
+class Rook : public TrackedPiece {
     public:
-        explicit Rook(Color color) : Piece(color) {}
+        explicit Rook(Color color) : TrackedPiece(color) {}
         std::string getSymbol() const override;
         bool isValidMove(Board& board, int fromRow, int fromCol, int toRow, int toCol) const override;
 };

@@ -14,4 +14,5 @@ class Piece {
         Color getColor() const {return color;}
         virtual std::string getSymbol() const = 0;
         virtual bool isValidMove(Board& board, int fromRow, int fromCol, int toRow, int toCol) const = 0;
+        virtual void onMove() {}
 };
