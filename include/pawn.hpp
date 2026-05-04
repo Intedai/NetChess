@@ -9,8 +9,10 @@
 #include "board.hpp"
 
 class Pawn : public TrackedPiece {
+    private:
+        int direction;
     public:
-        explicit Pawn(Color color) : TrackedPiece(color) {}
+        explicit Pawn(Color color);
         std::string getSymbol() const override;
         bool isValidMove(Board& board, int fromRow, int fromCol, int toRow, int toCol) const override;
 };

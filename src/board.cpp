@@ -96,8 +96,14 @@ void Board::movePiece(int fromRow, int fromCol, int toRow, int toCol) {
 
 bool Board::validMovePiece(int fromRow, int fromCol, int toRow, int toCol) {
     if (Validation::isInBoard(fromRow, fromCol) && Validation::isInBoard(toRow, toCol)) {
+        // If is Pawn check En passant and do if possible
+        // U can check the other pawn if it moved twice by it's position and using the bool moved of trackedpiece
+        // I might add a constant for white, black col pos or think of a better way
+        // Else if is King check castling and do if possible
+        // Else:
         if(board[fromRow][fromCol].getPiece().isValidMove(*this, fromRow, fromCol, toRow, toCol)) {
             board[fromRow][fromCol].movePiece(board[toRow][toCol]);
+            // If pawn add abillity to promote here
             return true;
         }
     }
